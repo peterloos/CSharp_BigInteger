@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-class BigInteger : Object, IFormattable, ICloneable, IComparable<BigInteger>
+class BigInteger : IFormattable, ICloneable, IComparable<BigInteger>
 {
     private int[] digits;
     private bool sign;
