@@ -107,6 +107,7 @@
     <Compile Include="BigMersenneNumbers.cs" />
     <Compile Include="BigPerfectNumbers.cs" />
     <Compile Include="BigPrimeNumbers.cs" />
+    <Compile Include="BigPowerByTwo.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

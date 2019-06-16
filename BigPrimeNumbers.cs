@@ -31,7 +31,7 @@ class BigPrimeNumbers
         }
 
         sw.Stop();
-        Console.WriteLine("Numer of Primes up to {0}: {1}", max, found);
+        Console.WriteLine("Number of Primes up to {0}: {1}", max, found);
         Console.WriteLine("[{0} msecs]", sw.ElapsedMilliseconds);
     }
 
@@ -52,7 +52,7 @@ class BigPrimeNumbers
         }
 
         sw.Stop();
-        Console.WriteLine("Numer of Primes up to {0}: {1}", max, found);
+        Console.WriteLine("Number of Primes up to {0}: {1}", max, found);
         Console.WriteLine("[{0} msecs]", sw.ElapsedMilliseconds);
     }
 
@@ -153,18 +153,18 @@ class BigPrimeNumbers
     private static bool IsPrime(BigInteger number)
     {
         // the smallest prime number is 2
-        if (number <= 2)
-            return number == 2;
+        if (number <= BigInteger.Two)
+            return number == BigInteger.Two;
 
         // even numbers other than 2 are not prime
-        if (number % 2 == 0)
+        if (number % BigInteger.Two == 0)
             return false;
 
         // check odd divisors from 3 to the half of the number
         // (in lack of a high precision sqare root function) 
-        BigInteger end = number / 2 + 1;
-        for (long i = 3; i <= end; i += 2)
-            if (number % i == 0)
+        BigInteger end = number / BigInteger.Two + BigInteger.One;
+        for (BigInteger i = 3; i <= end; i += BigInteger.Two)
+            if (number % i == BigInteger.Zero)
                 return false;
 
         // found prime number

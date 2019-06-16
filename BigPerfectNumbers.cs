@@ -12,17 +12,15 @@ class BigPerfectNumbers
         }
     }
 
-    public static void Test_02()
+    public static void Test_02(int max)
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
 
-        for (BigInteger n = 2; n < 10000; n++)
+        for (BigInteger n = 2; n < max; n++)
         {
             if (IsPerfectNumber(n))
                 Console.WriteLine("The value {0} is PERFECT", n);
-            else
-                Console.WriteLine("{0} not perfect", n);
         }
 
         sw.Stop();
@@ -78,7 +76,7 @@ class BigPerfectNumbers
     {
         BigInteger sumOfDivisors = 1;
         BigInteger limit = n / 2 + 1;
-        for (int i = 2; i < limit; i = i + 1)
+        for (BigInteger i = 2; i < limit; i++)
         {
             if (n % i == 0)
             {

@@ -10,6 +10,8 @@
     {
         Test.Test_Ctors();
         Test.Test_ToString();
+        Test.Test_Clone();
+        Test.Test_Singletons();
 
         Test.Test_Add_01_Unsigned();
         Test.Test_Add_02_Signed();
@@ -31,9 +33,6 @@
 
         Test.Test_IncrementDecrement();
         Test.Test_Equals();
-
-        Test.Test_Power_01();
-        Test.Test_Power_02();
     }
 
     private static void MathTest()
@@ -43,22 +42,26 @@
         BigPrimeNumbers.Test_02();
 
         // testing faculties
-        BigFaculty.Test_01(40);  // using built-in data types (partially wrong results)
-        BigFaculty.Test_02(40);  // using BigInteger
+        BigFaculty.Test_01(50);  // using built-in data types (partially wrong results)
+        BigFaculty.Test_02(100); // using BigInteger
 
         // testing fibonacci numbers
-        BigFibonacci.Test_01(30); // built-in data types, recursive
-        BigFibonacci.Test_02(30); // built-in data types, iterative
-        BigFibonacci.Test_03(30); // using BigInteger, recursive
-        BigFibonacci.Test_04(30); // using BigInteger, iterative
+        BigFibonacci.Test_01(30);  // built-in data types, recursive
+        BigFibonacci.Test_02(100); // built-in data types, iterative
+        BigFibonacci.Test_03(30);  // using BigInteger, recursive
+        BigFibonacci.Test_04(100); // using BigInteger, iterative
 
         // testing mersenne prime numbers
         BigMersenneNumbers.Test_01();
         BigMersenneNumbers.Test_02();
 
+        // testing power of 2
+        BigPowerByTwo.Test_01();
+        BigPowerByTwo.Test_02();
+
         // testing perfect numbers
         BigPerfectNumbers.Test_01();
-        BigPerfectNumbers.Test_02();
+        BigPerfectNumbers.Test_02(10000);
         BigPerfectNumbers.Test_03();
     }
 }

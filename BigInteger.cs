@@ -3,6 +3,8 @@ using System.Text;
 
 class BigInteger : IFormattable, ICloneable, IComparable<BigInteger>
 {
+    private const int Blocks = 24;
+
     private int[] digits;
     private bool sign;
 
@@ -48,6 +50,14 @@ class BigInteger : IFormattable, ICloneable, IComparable<BigInteger>
         this.digits = digits;
         this.sign = sign;
     }
+
+    // singletons for numbers 0, 1 and 2
+    private static BigInteger _singleZero = new BigInteger(0);
+    private static BigInteger _singleOne = new BigInteger(1);
+    private static BigInteger _singleTwo = new BigInteger(2);
+    public static BigInteger Zero => _singleZero;
+    public static BigInteger One => _singleOne;
+    public static BigInteger Two => _singleTwo;
 
     // properties
     public bool Sign
@@ -454,13 +464,13 @@ class BigInteger : IFormattable, ICloneable, IComparable<BigInteger>
         if (format != null)
         {
             if (!Int32.TryParse(format, out blocks))
-                blocks = 8;
+                blocks = Blocks;
 
             if (blocks <= 0)
-                blocks = 8;
+                blocks = Blocks;
         }
         else
-            blocks = 8;
+            blocks = Blocks;
 
         int linebreak = 0;
         StringBuilder tmp = new StringBuilder();

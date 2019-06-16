@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 class Test
 {
@@ -27,11 +28,18 @@ class Test
         // testing ToString
         BigInteger n;
 
-        n = new BigInteger("123.456.789.012");
-        Console.WriteLine("{0}", n);
         n = new BigInteger("+123.456.789.012");
         Console.WriteLine("{0}", n);
         n = new BigInteger("-123.456.789.012");
+        Console.WriteLine("{0}", n);
+
+        n = new BigInteger("123.456.789.012");
+        Console.WriteLine("{0}", n);
+        n = new BigInteger("12.345.678.901");
+        Console.WriteLine("{0}", n);
+        n = new BigInteger("1.234.567.890");
+        Console.WriteLine("{0}", n);
+        n = new BigInteger("123.456.789");
         Console.WriteLine("{0}", n);
 
         n = new BigInteger("123.456.789.012");
@@ -40,6 +48,25 @@ class Test
         Console.WriteLine("{0:3}", n);
         n = new BigInteger("-123.456.789.012");
         Console.WriteLine("{0:3}", n);
+    }
+
+    public static void Test_Clone()
+    {
+        BigInteger n1 = new BigInteger("12345");
+        Console.WriteLine("n1: {0}", n1);
+        BigInteger n2 = (BigInteger) n1.Clone();
+        Console.WriteLine("n2: {0}", n2);
+        Console.WriteLine("{0}", n1 == n2);
+        Console.WriteLine();
+    }
+
+    public static void Test_Singletons()
+    {
+        BigInteger one1 = BigInteger.One;
+        BigInteger one2 = BigInteger.One;
+        Console.WriteLine("n1: {0}", one1.GetHashCode());
+        Console.WriteLine("n2: {0}", one2.GetHashCode());
+        Console.WriteLine();
     }
 
     // ---------------------------------------------------
@@ -155,6 +182,7 @@ class Test
         b1 = new BigInteger("1000000");
         b2 = new BigInteger("1");
         Console.WriteLine("{0} - {1} = {2}", b1, b2, b1 - b2);
+        Console.WriteLine();
     }
 
     public static void Test_Sub_02_Signed()
@@ -291,11 +319,11 @@ class Test
 
         n1 = new BigInteger(99);
         n2 = new BigInteger(99);
-        Console.WriteLine("{0} * {1} =  {2}", n1, n2, n1 * n2);
+        Console.WriteLine("{0} * {1} = {2}", n1, n2, n1 * n2);
 
         n1 = new BigInteger(9999999999);
         n2 = new BigInteger(9999999999);
-        Console.WriteLine("{0} * {1} =  {2}", n1, n2, n1 * n2);
+        Console.WriteLine("{0} * {1} = {2}", n1, n2, n1 * n2);
 
         // testing multiplication
         n1 = new BigInteger("1212121212");
@@ -311,6 +339,7 @@ class Test
         n1 = new BigInteger("3");
         n2 = new BigInteger("50");
         Console.WriteLine("{0} * {1} = {2}", n1, n2, n1 * n2);
+        Console.WriteLine();
     }
 
 
@@ -511,33 +540,6 @@ class Test
         Console.WriteLine("{0} Equals {1}: {2}", n1, n2, n1.Equals(n2));
         n1--;
         Console.WriteLine("{0} Equals {1}: {2}", n1, n2, n1.Equals(n2));
-    }
-
-    // ---------------------------------------------------
-
-    public static void Test_Power_01()
-    {
-        // testing method 'Power'
-        BigInteger n = new BigInteger("2");
-        for (int i = 0; i < 128; i++)
-        {
-            BigInteger m = n.Power(i);
-            Console.WriteLine("2 to the power of {0,3}: {1:16}", i, m);
-        }
-    }
-
-    public static void Test_Power_02()
-    {
-        BigInteger huge = new BigInteger("2.475.880.078.570.760.549.798.248.448");
-
-        // BigInteger huge ("1.267.650.600.228.229.401.496.703.205.376");
-
-        while (huge != 1)
-        {
-            Console.Write("{0} / 2 = ", huge);
-            huge = huge / 2;
-            Console.WriteLine(huge);
-        }
     }
 }
 

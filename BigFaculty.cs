@@ -27,7 +27,7 @@ class BigFaculty
         for (BigInteger n = 1; n < max; n++)
         {
             BigInteger f = Faculty(n);
-            Console.WriteLine("Faculty of {0,2}: {1:16}", n, f);
+            Console.WriteLine("Faculty of {0,2}: {1:24}", n, f);
         }
 
         sw.Stop();
